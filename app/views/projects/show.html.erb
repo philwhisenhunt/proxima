@@ -5,5 +5,6 @@
     <div class="album-box"></div>
     <h3>Album title: <%= @todays_album.name %></h3>
     <h3>Artist name: <%= @todays_album.artist %></h3>
+    <h3><%= link_to "View Album on Spotify", @todays_album.spotify_link %></h3>
     <%= link_to "Back", projects_path %>
 </div>

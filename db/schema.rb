@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_12_184334) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_14_010304) do
   create_table "albums", force: :cascade do |t|
     t.string "name"
     t.string "artist"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "spotify_link"
   end
 
   create_table "projects", force: :cascade do |t|
