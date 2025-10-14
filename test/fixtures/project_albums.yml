@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  album: one
+  day_number: 1
+  rated_on: 2025-10-13
+  rating: 1
+  notes: MyText
+
+two:
+  project: two
+  album: two
+  day_number: 1
+  rated_on: 2025-10-13
+  rating: 1
+  notes: MyText
