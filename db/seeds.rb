@@ -7,3 +7,14 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+require 'csv'
+
+CSV.foreach(Rails.root.join('db/albums.csv'), headers: true) do |row|
+    album = Album.find_or_create_by!(
+        title: row['Title'],
+        artist: row['Artist'],
+        year: row['Release Date']
+    )
+    puts "Created album: " + album.title + " by: " + album.artist
+end
