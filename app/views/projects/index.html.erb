@@ -3,9 +3,9 @@
 <div id="projects">
     <% @projects.each do |project| %>
         <div>
-            <%= project.name %>
+            <%= link_to project.name, project %>
         </div>
     <% end %>
 </div>
 
-<%= link_to "Make your own project", projects_new_path %>
+<%= link_to "Make your own project", new_project_path %>
