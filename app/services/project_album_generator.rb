@@ -2,9 +2,6 @@ class ProjectAlbumGenerator
 
     def self.call(project)
         albums = Album.where.not(project: project)
-
-        project.project_albums.create(album: album)
-
         used_album_ids = project.project_albums.pluck(:album_id)
         album = Album.where.not(id: used_album_ids).order("RANDOM()").first
 
