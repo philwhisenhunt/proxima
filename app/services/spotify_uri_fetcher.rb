@@ -1,4 +1,4 @@
-class SpotifyURIFetcher
+class SpotifyUriFetcher
     def self.call(album)
         return if album.spotify_link.present?
 
@@ -12,6 +12,7 @@ class SpotifyURIFetcher
 
         uri = spotify_album.uri
         album.update!(spotify_link: uri)
+        puts "Added album link for " + album.title
         uri
 
     rescue RestClient::TooManyRequests => e
