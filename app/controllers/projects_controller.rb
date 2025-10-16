@@ -20,6 +20,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
+      @todays_album = ProjectAlbumGenerator.call(@project)
       redirect_to @project
     else
       render :new, status: :unprocessable_entity
