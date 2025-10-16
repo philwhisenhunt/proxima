@@ -5,7 +5,12 @@ class ProjectsController < ApplicationController
 
   def show 
     @project = Project.find(params[:id])
-    @todays_album = @project.albums.last
+
+    if @project.albums.last.present?
+      @todays_album = @project.albums.last 
+    else
+      @todays_album = ProjectAlbumGenerator.call(@project)
+    end
   end
 
   def new
