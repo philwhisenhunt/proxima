@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   end
 
   def show 
-    @project = Project.find(params[:id])
+    @project = Project.find_by(params[:name_slug])
 
     if @project.albums.last.present?
       @todays_album = @project.albums.last 
