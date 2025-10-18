@@ -19,6 +19,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    @project.name_slug = @project.name_without_spaces
     if @project.save
       @todays_album = ProjectAlbumGenerator.call(@project)
       redirect_to @project
