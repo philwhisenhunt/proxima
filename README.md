@@ -1,24 +1,38 @@
-# README
+## Proxima
+### Proxima is an album generator that shows one album a day.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Make sure you have the latest Ruby and Ruby on Rails installed via this guide:
+https://guides.rubyonrails.org/install_ruby_on_rails.html
 
-Things you may want to cover:
+Check version with:
+```
+ruby --version
+```
+Ruby version should be:
+`3.4.2`
 
-* Ruby version
+Check rails version with:
+```
+ rails --version
+```
 
-* System dependencies
+Rails version should be:
+ `8.0.3`
 
-* Configuration
 
-* Database creation
+#### Run the local server
+```
+bin/rails server
+```
 
-* Database initialization
+#### Adding seed data
+You can manually add albums, or use the built in seed data that pulls from a csv file:
+```
+rails db:seed
+```
 
-* How to run the test suite
+#### Adding links
+To add spotify uris you will need to make a spotify developer account and add your keys to the ENV file.
 
-* Services (job queues, cache servers, search engines, etc.)
+Once you add those, you run `bin/rake spotify:fetch_uris` to add uris to the seed data. It will take roughly 20 minutes to populate all 1000 albums.
 
-* Deployment instructions
-
-* ...
