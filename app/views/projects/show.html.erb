@@ -7,4 +7,18 @@
     <h3>Artist name: <%= @todays_album.artist %></h3>
     <h3><%= link_to "View Album on Spotify", @todays_album.spotify_link %></h3>
 
+    <%= form_with model: [@project_album, Rating.new], local: true do |form| %>
+        <% (1..5).each do |star| %>
+
+            <%= form.radio_button :stars, star %>
+            <%= star %>
+
+        <% end %>
+
+        <%= form.submit "Rate" %>
+    <% end %>
+
+    <% if flash[:alert] %>
+        <p style="color: green;" %><%= flash[:alert] %></p>
+    <% end %>
 </div>

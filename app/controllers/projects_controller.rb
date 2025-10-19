@@ -11,6 +11,8 @@ class ProjectsController < ApplicationController
     else
       @todays_album = ProjectAlbumGenerator.call(@project)
     end
+
+    @project_album = @project.project_albums.last
   end
 
   def new

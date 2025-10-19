@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "ratings/create"
   get "home/show"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -17,6 +18,10 @@ resources :projects do
   collection do
     get :search
   end
+end
+
+resources :project_albums do
+  resources :ratings, only: [:create]
 end
 
 root "home#show"
