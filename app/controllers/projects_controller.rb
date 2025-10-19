@@ -28,6 +28,20 @@ class ProjectsController < ApplicationController
     end
   end
 
+
+  def search
+    name_slug = params[:name_slug].to_s.strip.downcase.gsub(" ", "-")
+
+    project = Project.find_by(name_slug: name_slug)
+
+    if project
+      redirect_to project_path(project)
+    else
+      flash[:alert] = "No project found"
+      redirect_to root_path
+    end
+  end
+
   private 
   def project_params
     params.expect(project: [ :name ])

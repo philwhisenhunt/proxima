@@ -15,3 +15,20 @@ Create a project to receive 1 album a day from the list of 1001 currated Albums
         <%= form.submit %>
     </div>
 <% end %>
+
+<h3>Find an existing project</h3>
+
+<%= form_with url: search_projects_path, method: :get, local: true do |form| %>
+    <div>
+        <%= form.label :name_slug, "Project Name" %>
+        <%= form.text_field :name_slug, placeholder: "my-project-name" %>
+    </div>
+
+    <div>
+        <%= form.submit "Find" %>
+    </div>
+
+    <% if flash[:alert] %>
+        <p style="color: red;" %><%= flash[:alert] %></p>
+    <% end %>
+<% end %>
