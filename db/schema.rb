@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_18_182435) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_19_013601) do
   create_table "albums", force: :cascade do |t|
     t.string "name"
     t.string "artist"
@@ -41,6 +41,16 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_18_182435) do
     t.string "name_slug"
   end
 
+  create_table "ratings", force: :cascade do |t|
+    t.integer "stars"
+    t.integer "project_album_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_album_id"], name: "index_ratings_on_project_album_id"
+    t.check_constraint "stars BETWEEN 1 and 5", name: "stars_range"
+  end
+
   add_foreign_key "project_albums", "albums"
   add_foreign_key "project_albums", "projects"
+  add_foreign_key "ratings", "project_albums"
 end
