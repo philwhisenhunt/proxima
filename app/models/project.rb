@@ -6,4 +6,8 @@ class Project < ApplicationRecord
     def name_without_spaces
         name.downcase.gsub(" ", "-")
     end
+
+    def to_param
+        name_slug
+    end
 end
