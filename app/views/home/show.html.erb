@@ -1,34 +1,36 @@
-<h1>Proxima</h1>
-<p>
-Create a project to receive 1 album a day from the list of 1001 currated Albums 
+<div class="home-display">
+    <h1>Proxima</h1>
+    <p>
+    Create a project to receive 1 album a day from the list of 1001 currated Albums 
 
-</p>
-<h3>Start a new Listening Project</h3>
+    </p>
+    <h3>Start a new Listening Project</h3>
 
-<%= form_with model: @project do |form| %>
-    <div>
-        <%= form.label :project_name %>
-        <%= form.text_field :name %>
-    </div>
+    <%= form_with model: @project do |form| %>
+        <div>
+            <%= form.label :project_name %>
+            <%= form.text_field :name %>
+        </div>
 
-    <div>
-        <%= form.submit %>
-    </div>
-<% end %>
-
-<h3>Find an existing project</h3>
-
-<%= form_with url: search_projects_path, method: :get, local: true do |form| %>
-    <div>
-        <%= form.label :name_slug, "Project Name" %>
-        <%= form.text_field :name_slug, placeholder: "my-project-name" %>
-    </div>
-
-    <div>
-        <%= form.submit "Find" %>
-    </div>
-
-    <% if flash[:alert] %>
-        <p style="color: red;" %><%= flash[:alert] %></p>
+        <div>
+            <%= form.submit %>
+        </div>
     <% end %>
-<% end %>
+
+    <h3>Find an existing project</h3>
+
+    <%= form_with url: search_projects_path, method: :get, local: true do |form| %>
+        <div>
+            <%= form.label :name_slug, "Project Name" %>
+            <%= form.text_field :name_slug, placeholder: "my-project-name" %>
+        </div>
+
+        <div>
+            <%= form.submit "Find" %>
+        </div>
+
+        <% if flash[:alert] %>
+            <p style="color: red;" %><%= flash[:alert] %></p>
+        <% end %>
+    <% end %>
+</div>
