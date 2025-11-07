@@ -26,7 +26,7 @@ Rails version should be:
 
 If it's not, you can install this version of Rails by running:
 ```
-gem install rails --version=8.0.2
+gem install rails --version=8.0.3
 ```
 
 #### Run migrations
