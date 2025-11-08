@@ -8,17 +8,18 @@
     <h3><%= link_to "View Album on Spotify", @todays_album.spotify_link %></h3>
 
     <%= form_with model: [@project_album, Rating.new], local: true do |form| %>
-        <% (1..5).each do |star| %>
-
-            <%= form.radio_button :stars, star %>
-            <%= star %>
-
-        <% end %>
+        <div class=rating gap-1>
+            <% (1..5).each do |star| %>
+                <%= form.radio_button :stars, star, class: 'mask mask-star bg-lime-400 me-2', checked: (star == @project_album.rating&.stars) %>
+            <% end %>
+        </div>
 
         <%= form.submit "Rate" %>
     <% end %>
 
     <% if flash[:alert] %>
-        <p style="color: green;" %><%= flash[:alert] %></p>
+        <div role="alert" class="alert alert-success alert-soft">
+            <span><%= flash[:alert] %></span>
+        </div>
     <% end %>
 </div>

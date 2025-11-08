@@ -9,20 +9,4 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
- .album-box {
-    width: 500px;
-    height: 500px;
-    background-color: gray;
-    border-radius: 20px;
-    margin: auto;
- }
-
- .project-display{
-    background-color: whitesmoke;
-    text-align: center;
- }
-
- .home-display{
-    background-color: whitesmoke;
-    text-align: center;
- }
+/* This file gets ignored now in favor of the assets/tailwind/application.css file */
