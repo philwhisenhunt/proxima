@@ -1,27 +1,22 @@
-@import "tailwindcss"; /* importing tailwind need this for processing this file, since we're using the tailwindcss-rails gem */
 @import "https://cdn.jsdeliver.net/npm/daisyui@latest/dist/full.css"; /* importing daisyui for additional components */
+@import "tailwindcss"; /* importing tailwind need this for processing this file, since we're using the tailwindcss-rails gem */
 
-@tailwind base;
-@tailwind components;
+
 @tailwind utilities;
 
-/* Define custom styles below */
 h1 {
-  font-size: 2rem;
-  font-weight: bold;
+  @apply text-4xl font-bold;
+  &.title {
+    @apply text-6xl font-extrabold mb-8;
+  }
 }
-
 h2 {
-  font-size: 1.5rem;
-  font-weight: semi-bold;
+  @apply text-3xl font-semibold;
 }
 
 h3 {
-  font-size: 1.25rem;
-  font-weight: medium;
+  @apply text-2xl font-medium;
 }
-
-/* can also use @apply directive to apply utility classes */
 .album-box {
   @apply w-80 h-80 bg-gray-400 rounded-lg m-auto;
 }
@@ -31,5 +26,5 @@ h3 {
 }
 
 .home-display {
-  @apply text-center;
+  @apply flex flex-col justify-center items-center h-screen;
 }
