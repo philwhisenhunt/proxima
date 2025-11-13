@@ -1,32 +1,38 @@
 <div class="home-display">
-    <h1>Proxima</h1>
-    <p>
-    Create a project to receive 1 album a day from the list of 1001 currated Albums 
-
+    <h1 class="title text-primary">
+        Proxima
+    </h1>
+    <p class="italic mb-8">
+        Create a project to receive 1 album a day from a list of 1001 curated Albums 
     </p>
-    <h3>Start a new Listening Project</h3>
+
+    <h3>
+        Start a new Listening Project
+    </h3>
 
     <%= form_with model: @project do |form| %>
-        <div>
-            <%= form.label :project_name %>
-            <%= form.text_field :name %>
-        </div>
-
-        <div>
-            <%= form.submit %>
+        <div class="join my-4">
+            <div class="w-64">
+                <label for="project_name" class="input join-item">
+                    <%= form.text_field :name, placeholder: 'Project name', required: true %>
+                </label>
+            </div>
+            <%= form.submit "Create", class: "btn btn-primary join-item" %>
         </div>
     <% end %>
 
-    <h3>Find an existing project</h3>
+    <h3>
+        Find an existing project
+    </h3>
 
     <%= form_with url: search_projects_path, method: :get, local: true do |form| %>
-        <div>
-            <%= form.label :name_slug, "Project Name" %>
-            <%= form.text_field :name_slug, placeholder: "my-project-name" %>
-        </div>
-
-        <div>
-            <%= form.submit "Find" %>
+        <div class="join my-4">
+            <div class="w-64">
+                <label for="name_slug" class="input join-item">
+                    <%= form.text_field :name_slug, placeholder: "my-project-name", required: true %>
+                </label>
+            </div>
+            <%= form.submit "Find", class: 'btn btn-primary join-item' %>
         </div>
 
         <% if flash[:alert] %>
