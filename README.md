@@ -29,6 +29,11 @@ If it's not, you can install this version of Rails by running:
 gem install rails --version=8.0.3
 ```
 
+Install dependencies:
+```
+bundle install
+```
+
 #### Adding links
 To add spotify URIs you will need to make a spotify developer account and add your keys to the ENV file. **Setting this up is required for the migrations to run.**
 
@@ -71,6 +76,20 @@ bin/rake spotify:fetch_uris
 ```
 
 #### Run the local server
+This project uses Tailwind CSS for styling, and the DaisyUI component library. To have your UI changes reflected in the browser on refresh, you'll need to run the server using:
 ```
+bin/dev
+``` 
+
+This command accesses the Procfile using foreman to run `rails server` as well as the watch command for Tailwind. You could also run these two commands in 2 separate terminals.
+```
+# In the first terminal window:
 bin/rails server
+# In the second terminal window:
+bin/rails tailwindcss:watch
+```
+
+If you're seeing a `Propshaft::MissingAssetError` on the home page, you can run:
+```
+bin/rails tailwindcss:install
 ```
